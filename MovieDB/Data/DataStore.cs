@@ -14,7 +14,19 @@ namespace MovieDB.Data
     class DataStore
     {
         ProjectData data;
-        public ProjectData Data => data; 
+
+        public Models.User User => data.UserDetails;
+        public List<Models.Movie> Movies => data.Movies;
+
+        public void SetUser(Models.User user)
+        {
+            data.UserDetails = user;
+        }
+
+        public void AddMovie(Models.Movie movie)
+        {
+            data.Movies.Add(movie);
+        }
 
         public DataStore()
         {
@@ -30,7 +42,7 @@ namespace MovieDB.Data
 
         public void SaveData()
         {
-            var content = JsonConvert.SerializeObject(Data, Formatting.Indented);
+            var content = JsonConvert.SerializeObject(data, Formatting.Indented);
             System.IO.File.WriteAllText("data.json", content);
         }
     }

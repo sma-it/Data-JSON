@@ -4,24 +4,24 @@ using System.Text;
 
 namespace MovieDB.Views
 {
-    class UserView
+class UserView
+{
+    public static Data.Models.User CreateUser()
     {
-        public static Data.Models.User CreateUser()
-        {
-            var user = new Data.Models.User();
-            Console.Write("Please enter your name: ");
-            user.Name = Console.ReadLine();
+        var user = new Data.Models.User();
+        Console.Write("Please enter your name: ");
+        user.Name = Console.ReadLine();
 
-            Console.Write("Please enter your age: ");
-            user.Age = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Please enter your age: ");
+        user.Age = Convert.ToInt32(Console.ReadLine());
 
-            return user;
-        }
-
-        public static void  ShowUser(Data.Models.User user)
-        {
-            Console.WriteLine("Name: " + user.Name);
-            Console.WriteLine("Age : " + user.Age);
-        }
+        return user;
     }
+
+    public static void  ShowUser(Data.Models.User user)
+    {
+        Console.WriteLine("Name: " + user.Name);
+        Console.WriteLine("Age : " + user.Age);
+    }
+}
 }
